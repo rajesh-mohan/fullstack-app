@@ -51,9 +51,27 @@
   </v-app>
   </div>
 
-    <script src="{{ url_for('static', filename='js/vue-dev.js') }}"></script>
-  <!-- <script src="{{ url_for('static', filename='js/vue-prod.js') }}"></script> -->
+    <!-- <script src="{{ url_for('static', filename='js/vue-dev.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='js/vue-prod.js') }}"></script>
   <script src="{{ url_for('static', filename='js/vuetify.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/index.js') }}"></script> -->
+  <script>
+  new Vue({
+    el: '#app',
+    data: {
+      greeting: 'Hello, Vue!',
+      notifications: [
+        'Mike John Responded to your email',
+        'You have 5 new tasks',
+        'You\'re now friends with Andrew',
+        'Another Notification',
+        'Another one',
+      ]
+    },      
+    vuetify: new Vuetify({
+      theme: { dark: '{{ ux["light_theme"] }}' },
+    }),
+  })    
+  </script>
 </body>
 </html>
