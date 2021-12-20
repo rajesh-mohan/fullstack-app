@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="css/fonts.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/fonts.css') }}" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
   <!-- <link href="icons.css" rel="stylesheet"> -->
-  <link href="css/vuetify.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/vuetify.min.css') }}" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
@@ -87,8 +87,8 @@
   </div>
 
   <!-- <script src="vue-dev.js"></script> -->
-  <script src="js/vue-prod.js"></script>
-  <script src="js/vuetify.js"></script>
-  <script src="js/index.js"></script>
+  <script src="{{ url_for('static', filename='js/vue-prod.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vuetify.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>
