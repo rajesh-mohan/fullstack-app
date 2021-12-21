@@ -15,6 +15,11 @@
     <v-navigation-drawer app>
       <v-list>
         <v-list-item class="px-0 align-center justify-center fill-height">      
+          <v-btn outlined href="{{ url_for('login') }}">
+            Login
+          </v-btn>
+          </v-list-item>
+        <v-list-item class="px-0 align-center justify-center fill-height">      
           <v-btn outlined href="{{ url_for('index') }}">
             Home
           </v-btn>
@@ -41,6 +46,21 @@
   
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <v-alert
+            border="left"
+            colored-border
+            color="deep-purple accent-4"
+            elevation="2"
+            dismissible
+            >
+            {{ message }}
+            </v-alert>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}        
         {% block content %}{% endblock %}
       </v-container>
     </v-main>
