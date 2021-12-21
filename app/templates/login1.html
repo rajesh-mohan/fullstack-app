@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <v-container>
+              <v-col
+                cols="12"
+                sm="2"
+              >
+              {% for error in form.username.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}              
+              <v-text-field id="username" name="username" label="Username" type="text" outlined></v-text-field>
+              {% for error in form.password.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+              <v-text-field id="password" name="password" label="Password" type="password" outlined></v-text-field>
+              <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+              <v-btn id="submit" name="submit" depressed color="primary">
+                {{ form.submit() }}
+              </v-btn>
+              </v-col>
+              </v-container>
+    </form>
+{% endblock %}

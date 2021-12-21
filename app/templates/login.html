@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="{{ url_for('static', filename='css/fonts.css') }}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <!-- <link href="icons.css" rel="stylesheet"> -->
+  <link href="{{ url_for('static', filename='css/vuetify.min.css') }}" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+
+<v-app>
+    <v-main>
+        <v-row style="height: 100vh;">
+          <v-col
+            cols="12"
+            sm="6"
+            md="8"
+          >
+          <v-img src="{{ url_for('static', filename='img/k8s-wallpaper.png') }}" min-height="100vh" min-width="100vh"></v-img>
+          </v-col>
+          <v-col
+            cols="6"
+            md="4"
+          >
+          <v-card-title class="justify-center ma-16">          
+            Sign In
+            </v-card-title>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <v-container>
+                      <v-col
+                        cols="12"
+                      >
+                      <v-card-text>
+                      {% for error in form.username.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}              
+                      <v-text-field id="username" name="username" label="Username" type="text" outlined></v-text-field>
+                      {% for error in form.password.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                      <v-text-field id="password" name="password" label="Password" type="password" outlined></v-text-field>
+                      <v-row>
+                        <v-col>
+                        {{ form.remember_me() }} {{ form.remember_me.label }}
+                      </v-col>
+                      </v-row>
+                      <br />
+                      <v-btn id="submit" name="submit" type="submit" value="Submit" block color="primary">Submit</v-btn>
+                      </v-card-text>
+                      </v-col>
+                      </v-container>
+            </form>
+          </v-col>
+        </v-row>
+    </v-main>
+  
+    <v-footer app class="justify-center">
+      Copyright Info Goes Here
+    </v-footer>
+  </v-app>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/vue-prod.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vuetify.js') }}"></script>
+  <script>
+  new Vue({
+    el: '#app',
+    data: {
+      greeting: 'Hello, Vue!',
+      notifications: [
+        'Mike John Responded to your email',
+        'You have 5 new tasks',
+        'You\'re now friends with Andrew',
+        'Another Notification',
+        'Another one',
+      ]
+    },      
+    vuetify: new Vuetify({
+      theme: { dark: '{{ ux["light_theme"] }}' },
+    }),
+  })
+  </script>
+</body>
+</html>
